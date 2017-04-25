@@ -350,7 +350,8 @@ class Terminal(object):
 
         try:
             os.kill(self.pid, signal.SIGHUP)
-            os.kill(self.pid, signal.SIGCONT)
+            # os.kill(self.pid, signal.SIGCONT)
+            os.kill(self.pid, signal.SIGKILL)
             os.waitpid(self.pid, 0)
         except Exception:
             log.debug('waitpid fail', exc_info=True)
